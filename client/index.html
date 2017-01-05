@@ -22,12 +22,12 @@
     <script>
       $(function() {
         // set up model objects
+        //creates a collection of songs in songData array (data/data.js)
         var library = new Songs(songData);
+        //creates a parent model class for whole app, passes in collections of songs
         var app = new AppModel({library: library});
-
         // build a view for the top level of the whole app
         var appView = new AppView({model: app});
-
         // put the view onto the screen
         $('body').append(appView.render());
       });
