@@ -22,12 +22,19 @@ var SongQueue = Backbone.Collection.extend({
       }
     }, this);
 
-
     //when a song is dequeued
     this.on('dequeue', function(song) {
       //remove the song
       this.remove(song);
     }, this);
+
+    //when a user removes a song
+    this.on('removeTrack', function(song) {
+      //remove the song
+      this.remove(song);
+    }, this);
+
+
 
   },
 

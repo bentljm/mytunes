@@ -12,6 +12,11 @@ describe('App', function() {
         artist: 'data',
         url: '/test/testsong2.mp3',
         title: 'test song 2'
+      },
+      {
+        artist: 'data3',
+        url: '/test/testsong2.mp3',
+        title: 'test song 3'
       }
     ]);
     app = new AppModel({library: fakeSongs});
@@ -30,6 +35,15 @@ describe('App', function() {
   it('queues the next song when an "enqueue" event is fired', function() {
     app.get('library').at(1).enqueue();
     expect(app.get('songQueue').at(0)).to.equal(app.get('library').at(1));
+  });
+
+  it('remove a track when a "removeTrack" event is fired', function() {
+    app.get('library').at(0).enqueue();
+    app.get('library').at(1).enqueue();
+    app.get('library').at(2).enqueue();
+    app.get('library').at(0).removeTrack();
+    expect(app.get('songQueue').at(0)).to.equal(app.get('library').at(1));
+
   });
 
 });
