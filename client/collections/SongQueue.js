@@ -9,7 +9,7 @@ var SongQueue = Backbone.Collection.extend({
       if (this.length === 1) {
         this.playFirst();
       }
-    }, this);
+    });
 
     //when a song ends
     this.on('ended', function() {
@@ -20,7 +20,7 @@ var SongQueue = Backbone.Collection.extend({
         //and if there are, play the next one
         this.playFirst();
       }
-    }, this);
+    });
 
     //when a song is dequeued
     this.on('dequeue', function(song) {
@@ -32,9 +32,7 @@ var SongQueue = Backbone.Collection.extend({
     this.on('removeTrack', function(song) {
       //remove the song
       this.remove(song);
-    }, this);
-
-
+    });
 
   },
 

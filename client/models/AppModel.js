@@ -22,7 +22,7 @@ var AppModel = Backbone.Model.extend({
     }, this);
 
     params.library.on('removeTrack', function(song) {
-      //queues the next song when an "enqueue" event is fired
+      //removes the track when an "removeTrack" event is fired
       this.get('songQueue').remove(song);
     }, this);
 
